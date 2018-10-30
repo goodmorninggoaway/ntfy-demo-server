@@ -3,11 +3,11 @@
   "description": "Simple server component for notification demo app.",
   "version": "0.0.1",
   "private": true,
-  "license": "Apache-2.0",
+  "license": "MIT",
   "author": "Tuomas Jaakola",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iqqmut/ntfy-server.git"
+    "url": "https://github.com/iqqmut/ntfy-demo-server.git"
   },
   "engines": {
     "node": ">=8"

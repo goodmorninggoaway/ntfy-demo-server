@@ -1,5 +1,7 @@
-import * as admin from 'firebase-admin';
-import express from 'express';
+const admin = require('firebase-admin');
+const express = require('express');
+
+const messaging = require('./messaging');
 
 // read Firebase Admin SDK credentials from json file
 const serviceAccount = require('./serviceAccountKey.json');
@@ -15,6 +17,18 @@ const server = express();
 // http server routes
 server.get('/', (req, res) => {
   res.status(200).send('Hello, world!').end();
+});
+
+server.get('/send', async (req, res) => {
+  try {
+    const response = await messaging.sendMessage('test001', {
+      score: '850',
+      time: '2:33',
+    });
+    res.status(200).send('message sent.').end();
+  } catch (err) {
+    res.status(500).send('Error when sending message').end();
+  }
 });
 
 // start the server
