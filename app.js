@@ -1,5 +1,5 @@
-const admin = require('firebase-admin');
-const express = require('express');
+import * as admin from 'firebase-admin';
+import express from 'express';
 
 // read Firebase Admin SDK credentials from json file
 const serviceAccount = require('./serviceAccountKey.json');
