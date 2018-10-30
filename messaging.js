@@ -7,6 +7,10 @@ const admin = require('firebase-admin');
 const sendMessage = async function(topic, data) {
   const message = {
     data: data,
+    notification: {
+      title: 'New Notsku',
+      body: 'Here is a new notification for you.',
+    },
     topic: topic,
     android: {
       // priority must be set high, see:
