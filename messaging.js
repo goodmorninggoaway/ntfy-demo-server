@@ -8,6 +8,11 @@ const sendMessage = async function(topic, data) {
   const message = {
     data: data,
     topic: topic,
+    android: {
+      // priority must be set high, see:
+      // https://rnfirebase.io/docs/v5.x.x/messaging/receiving-messages#4)-(Optional)(Android-only)-Listen-for-FCM-messages-in-the-background
+      priority: 'high',
+    },
   };
 
   try {
