@@ -1,18 +1,25 @@
-'use strict';
-
-// [START gae_node_request_example]
+const admin = require('firebase-admin');
 const express = require('express');
 
-const app = express();
+// read Firebase Admin SDK credentials from json file
+const serviceAccount = require('./serviceAccountKey.json');
 
-app.get('/', (req, res) => {
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://notification-demo-server.firebaseio.com'
+});
+
+// create http server
+const server = express();
+
+// http server routes
+server.get('/', (req, res) => {
   res.status(200).send('Hello, world!').end();
 });
 
-// Start the server
+// start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
-// [END gae_node_request_example]

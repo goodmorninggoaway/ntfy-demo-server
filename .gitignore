@@ -1,0 +1,6 @@
+# service account key must be private!
+serviceAccountKey.json
+
+
+node_modules/
+*.swp
