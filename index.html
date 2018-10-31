@@ -77,10 +77,19 @@
         })
         .done(function(response) {
           console.debug('Response', response);
+
           // enable send button and make it green
-          $('#send').removeAttr('disabled')
+          $('#send')
+            .removeAttr('disabled')
             .removeClass('btn-primary')
             .addClass('btn-success');
+
+          // after a while, reset send button
+          setTimeout(function() {
+            $('#send')
+              .removeClass('btn-success')
+              .addClass('btn-primary');
+          }, 3000);
         });
       }
     </script>
